@@ -12,8 +12,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+$(call inherit-product, vendor/motorola/shamu/shamu-vendor-blobs.mk)
+
+# Prebuilt APKs
 PRODUCT_PACKAGES += \
-    BuaContactAdapter
+    atfwd \
+    ims \
+    TimeService \
+    VZWAPNLib
 
-$(call inherit-product-if-exists, vendor/motorola/shamu/device-partial.mk
+# Prebuilt jars
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras.jar \
+    com.verizon.hardware.telephony.ehrpd \
+    com.verizon.hardware.telephony.lte \
+    com.verizon.ims \
+    rcsimssettings \
+    rcsservice
 
+# Prebuilt privileged APKs
+PRODUCT_PACKAGES += \
+    AppDirectedSMSProxy \
+    BuaContactAdapter \
+    CNEService \
+    MotoSignatureApp \
+    TriggerEnroll \
+    TriggerTrainingService \
+    VZWAPNService
+
+# Prebuilt vendor/libs needed for compilation
+PRODUCT_PACKAGES += \
+    libtime_genoff
